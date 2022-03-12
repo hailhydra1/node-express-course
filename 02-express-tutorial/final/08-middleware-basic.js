@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 
-//  req => middleware => res
+//  req => middleware => res  
 
 const logger = (req, res, next) => {
   const method = req.method

@@ -9,7 +9,7 @@ const authorize = require('./authorize')
 // app.use(express.static('./public'))
 app.use(morgan('tiny'))
 
-app.get('/', (req, res) => {
+app.get('/', (req, res) => { 
   res.send('Home')
 })
 app.get('/about', (req, res) => {

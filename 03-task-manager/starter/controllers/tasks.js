@@ -1,7 +1,9 @@
-const Task=require('../models/Task')
+const Task=require('../models/Task')//importing mongoose model
 const asyncWrapper=require('../middleware/async')
 const{createCustomError}=require('../errors/custom-error')
 
+//all methods should be async await
+//must use try catch block 
 const getAllTasks= asyncWrapper( async (req,res)=>{
    
         const tasks = await Task.find({})
@@ -20,7 +22,9 @@ const getTask=asyncWrapper(async (req,res,next)=>{
     
         const{id:taskID}=req.params
         const task=await Task.findOne({_id:taskID})
+        //length of id is correct is correct but no id matches
         if(!task){
+            //returning is must
             return next(createCustomError(`no task with id:${taskID}`,404))
         }
         res.status(200).json({task})

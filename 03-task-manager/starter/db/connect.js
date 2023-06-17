@@ -1,10 +1,9 @@
 const mongoose=require('mongoose')
-
-
-
-const connectDb=(url)=>{
+//url=MONGO_URI
+const connectDb=(url)=>{  
   return mongoose
   .connect(url,{
+    //to remove deprication warnings
     useNewUrlParser:true,
     useCreateIndex:true,
     useFindAndModify:false,

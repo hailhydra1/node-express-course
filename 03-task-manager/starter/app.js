@@ -2,8 +2,8 @@
 const express=require('express')
 const app=express()
 const tasks=require('./routes/tasks')
-const connectDB=require('./db/connect')
-require('dotenv').config()
+const connectDB=require('./db/connect')//connecting to mongodb
+require('dotenv').config() //to hide the connection string(MONGO_URI)
 const notFound=require('./middleware/not-found')
 const errorHandler=require('./middleware/error-handler')
 
@@ -19,6 +19,7 @@ const port=process.env.PORT || 3000
 
 const start=async ()=>{ 
     try{
+        //first connect to database then spin up port 3000
         await connectDB(process.env.MONGO_URI)
         app.listen(port,console.log(`server is listening on port  ${port}...`))
     }   

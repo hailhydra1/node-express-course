@@ -7,7 +7,7 @@ const mongoose=require('mongoose')
          trim:true,
          maxlength:[20,'name cannot be more than 20 characters']
      },
-     completed:{
+     completed:{  
          type:Boolean,
          default:false
      }
